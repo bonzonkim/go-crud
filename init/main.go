@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"go-crud/init/cmd"
+)
+
+var configPathFlag = flag.String("config", "./config.toml", "config file not found")
 
 func main() {
-	fmt.Println("hello world")
+	flag.Parse()
+	cmd.NewCmd(*configPathFlag)
 }
